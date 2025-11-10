@@ -3,7 +3,6 @@ import { Background } from "components/Background"
 import { CustomLink } from "components/CustomLink"
 import { Footer } from "components/Footer"
 import { Logo } from "components/Logo"
-import { Wallet } from "components/Wallet"
 import { HiMenu } from "react-icons/hi"
 import Popup from "reactjs-popup"
 
@@ -27,9 +26,7 @@ export const PageLayout: FC<PageLayoutProps> = ({ children }) => {
               <Logo />
             </CustomLink>
           </div>
-          <div className="flex items-center gap-4 xs:hidden">
-            <Wallet />
-          </div>
+          
           <Popup
             open={isOpen}
             onClose={closeModal}
@@ -41,9 +38,7 @@ export const PageLayout: FC<PageLayoutProps> = ({ children }) => {
             modal
             overlayStyle={{ marginTop: "60px", backgroundColor: "rgba(23,23,23,0.95)" }} >
             <div className="flex flex-col w-screen h-screen gap-8 place-content-center">
-              <div className="flex justify-center gap-8">
-                <Wallet />
-              </div>
+              
             </div>
           </Popup>
         </header>
