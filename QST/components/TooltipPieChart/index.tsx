@@ -3,11 +3,11 @@ import ReactTooltip from "react-tooltip"
 import { PieChart } from "react-minimal-pie-chart"
 
 // 1. Get the original data entry type
-type OriginalDataEntry = ComponentProps<typeof PieChart>["data"][0];
+type OriginalDataEntry = ComponentProps<typeof PieChart>["data"][0]
 
 // 2. Define a custom type that *replaces* the title property with
 // an optional tooltip property that can be a string or a number
-type PieChartDataEntry = Omit<OriginalDataEntry, 'title'> & {
+type PieChartDataEntry = Omit<OriginalDataEntry, "title"> & {
   tooltip?: string | number; // Allow number type for tooltip
   title?: string | number; // Allow number type for title
 }
@@ -20,10 +20,10 @@ type Props = {
 // 4. Update the function argument type and ensure it handles string or number
 function makeTooltipContent (entry: PieChartDataEntry) {
   // Ensure we convert number types to strings for concatenation
-  const tooltipText = typeof entry.tooltip === 'number' ? String(entry.tooltip) : entry.tooltip;
-  const valueText = String(entry.value); // Value is a number, convert to string
+  const tooltipText = typeof entry.tooltip === "number" ? String(entry.tooltip) : entry.tooltip
+  const valueText = String(entry.value) // Value is a number, convert to string
 
-  return `${tooltipText} - ${valueText}%`;
+  return `${tooltipText} - ${valueText}%`
 }
 
 export const ToolTipPieChart = (props: Props) => {
