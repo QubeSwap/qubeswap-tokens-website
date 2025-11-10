@@ -11,7 +11,7 @@ export const Footer = () => {
         <CustomLink href="https://x.com/QubeSwap">
           <BsTwitter color='white' />
         </CustomLink>
-	<CustomLink href="https://t.me/QubeSwap">
+	   	<CustomLink href="https://t.me/QubeSwap">
           <FaTelegramPlane color='white' />
         </CustomLink>
         <CustomLink href="https://github.com/QubeSwap">
