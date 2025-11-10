@@ -6,7 +6,7 @@ import { PieChart } from "react-minimal-pie-chart"
 // We use 'string | undefined' to handle cases where 'title' might be missing.
 type PieChartDataEntry = ComponentProps<typeof PieChart>["data"][0] & {
   tooltip?: string;
-};
+}
 
 // 2. Update the Props type to use the new custom type.
 type Props = {
