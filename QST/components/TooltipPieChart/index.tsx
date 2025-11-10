@@ -2,31 +2,38 @@ import { useState, ComponentProps } from "react"
 import ReactTooltip from "react-tooltip"
 import { PieChart } from "react-minimal-pie-chart"
 
-// 1. Define a custom type that extends the default data type to include 'tooltip'.
-// We use 'string | undefined' to handle cases where 'title' might be missing.
-type PieChartDataEntry = ComponentProps<typeof PieChart>["data"][0] & {
-  tooltip?: string;
+// 1. Get the original data entry type
+type OriginalDataEntry = ComponentProps<typeof PieChart>["data"][0];
+
+// 2. Define a custom type that *replaces* the title property with
+// an optional tooltip property that can be a string or a number
+type PieChartDataEntry = Omit<OriginalDataEntry, 'title'> & {
+  tooltip?: string | number; // Allow number type for tooltip
+  title?: string | number; // Allow number type for title
 }
 
-// 2. Update the Props type to use the new custom type.
+// 3. Update the Props type to use the new custom type.
 type Props = {
   data: PieChartDataEntry[];
 }
 
-// 3. Update the function argument type to use the custom type.
+// 4. Update the function argument type and ensure it handles string or number
 function makeTooltipContent (entry: PieChartDataEntry) {
-  // Use a fallback for 'entry.tooltip' just in case it's undefined
-  return `${entry.tooltip || entry.title} - ${entry.value}%`
+  // Ensure we convert number types to strings for concatenation
+  const tooltipText = typeof entry.tooltip === 'number' ? String(entry.tooltip) : entry.tooltip;
+  const valueText = String(entry.value); // Value is a number, convert to string
+
+  return `${tooltipText} - ${valueText}%`;
 }
 
 export const ToolTipPieChart = (props: Props) => {
   const [hovered, setHovered] = useState<number | null>(null)
 
-  // 4. The data transformation is fine, but the 'data' variable now has the correct type inferred.
+  // The data transformation is fine as the types now align.
   const data = props.data.map(({ title, ...entry }) => {
     return {
       ...entry,
-      tooltip: title // 'tooltip' property is correctly added here
+      tooltip: title // This is now valid as 'tooltip' accepts number|string
     }
   })
 
