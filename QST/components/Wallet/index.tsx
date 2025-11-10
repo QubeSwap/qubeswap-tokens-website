@@ -4,7 +4,6 @@ import { useEffect, useState } from "react"
 import { BiWallet, BiWifiOff } from "react-icons/bi"
 import Popup from "reactjs-popup"
 import { middleStringTruncate } from "utils/middleStringTruncate"
-import { CopyToClipboard } from "react-copy-to-clipboard"
 import toast from "react-hot-toast"
 import { CustomLink } from "components/CustomLink"
 import { addNetowrkMetadata } from "utils/constants"
@@ -90,16 +89,4 @@ export const Wallet = () => {
       </button>
     )
   }
-
-  return (
-    <CopyToClipboard
-      text={address}
-      onCopy={() => toast.success("wallet copied")}>
-      <button className="p-2 border-2 border-orange-500 border-solid bg-gradient-to-t from-orange-900 via-orange-800 to-orange-900">
-        <span className='font-semibold text-white'>
-          {middleStringTruncate(address, 6, 6)}
-        </span>
-      </button>
-    </CopyToClipboard>
-  )
 }
