@@ -1,6 +1,6 @@
 
 import { BsTwitter, BsGithub } from "react-icons/bs"
-import { FaTelegramPlane } from "react-icons/fa";
+import { FaTelegramPlane } from "react-icons/fa"
 import { CustomLink } from "../CustomLink"
 
 export const Footer = () => {
