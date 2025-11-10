@@ -16,7 +16,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>FoxCoin</title>
+        <title>XQST | Page</title>
       </Head>
       <div className="flex flex-col gap-16">
         <div className="relative grid h-full grid-cols-2 gap-10 p-4 pt-40 pb-32 my-auto overflow-hidden xl:px-8 xs:grid-cols-1">
@@ -27,13 +27,13 @@ const Home: NextPage = () => {
                 <span className="text-sm font-semibold">Live on Rinkeby</span>
               </div>
               <h1 className="flex flex-col gap-6 font-semibold text-7xl sm:text-6xl xs:text-6xl">
-                <span className="text-white">Little meme.</span>
-                <span className="text-white">Big dream.</span>
+                <span className="text-white">Wrapped</span>
+                <span className="text-white">QubeSwap Token</span>
               </h1>
-              <p className="text-gray-300">Explore the crypto world. Join Community of Fox</p>
+              <p className="text-gray-300">Explore the crypto world. Join Community of QubeSwap</p>
             </div>
             <button className="flex items-center gap-2 p-4 px-6 transition-all bg-orange-500 max-w-max hover:scale-105" onClick={handleClaimAirdrop}>
-              <span className="font-semibold">Get Airdrop</span>
+              <span className="font-semibold">Get XQST</span>
               { claimAirdropMutation.isLoading && <AiOutlineLoading3Quarters className="animate-spin" size="1.2rem" /> }
               { !claimAirdropMutation.isLoading && <BsArrowUpRight /> }
             </button>
